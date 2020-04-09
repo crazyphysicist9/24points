@@ -1,5 +1,6 @@
 # 24points
-CSE330 Creative Project: Combine operations and operands to get an expression to equal 24
+
+Creative Project: Combine operations and operands to get an expression to equal 24
 
 Functionality:
 - Users can register, login, and logout
