@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>24 Points Poker Game</title>
+    <meta charset="utf-8">
+    <style>
+        table, th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 70%;
+            margin-top:20px;
+            margin-bottom:20px; 
+        }
+
+        th, td{
+            padding: 10px;
+        }
+
+        form{
+            margin-top: 20px;
+            margin-bottom: 20px;
+            
+        }
+
+        body{
+            width: 760px; /* how wide to make your web page */
+            background-color: beige; /* what color to make the background */
+            margin: 0 auto;
+            padding: 0;
+            font:12px/16px Verdana, sans-serif; /* default font */
+        }
+        div#main{
+            background-color: #FFF;
+            margin: 0;
+            padding: 10px;
+        }
+
+    </style>
+    <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+    
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script> -->
+        <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase-app.js"></script>
+    
+        <!-- Add Firebase products that you want to use -->
+        <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase-database.js"></script>
+    
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyDe0cPlWMCQW0m0-Pck3xDQsuuQ9o3V-BM",
+                authDomain: "cse-330-creative.firebaseapp.com",
+                databaseURL: "https://cse-330-creative.firebaseio.com",
+                projectId: "cse-330-creative",
+                storageBucket: "cse-330-creative.appspot.com",
+                messagingSenderId: "887474756733"
+            };
+            firebase.initializeApp(config);
+        </script>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="24_points.js"></script>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <!-- <link rel="stylesheet" href="24_points.css"> -->
+    <script type="text/babel">
+
+        function timer() {
+            const element = (
+                <div>
+                <h2>It's {new Date().toLocaleTimeString()}.</h2>
+                </div>
+            );
+            ReactDOM.render(
+                element,
+                document.getElementById('example')
+            );
+        }
+            
+        // setInterval(tick, 1000);
+    </script>
+</head>
+
+<body>
+    <!-- div to log in -->
+    <div id="divLogin">
+        <p>Welcome, you are now browsing as Guest.</p>
+        <p>Please log in to view your events. </p>
+        Username: <input type="text" id="inLoginUsername"/><br/>
+        Password: <input type="password" id="inLoginPassword"/><br/>
+        <input type="submit" id="btnLoginSubmit" value="Log in" /><br/>
+    </div>
+
+    <!-- div to sign up -->
+    <div id="divRegister">
+        <p>Register</p>
+        Username: <input type="text" id="inRegisterUsername"/><br/>
+        Password: <input type="password" id="inRegisterPassword"/><br/>
+        <input type="submit" id="btnRegisterSubmit" value="Sign up" /><br/>
+    </div> 
+    <div id="divGuest">
+        <button id="btnGuest">Play game as a guest</button>
+    </div>
+    <!-- <div id="divGreeting">
+
+    </div> -->
+
+    <!-- div to display four randomly generated numbers for the game -->
+    <div id="divPB"></div>
+    <div id="divRound"></div>
+    <div id="divNumbers">
+        <table id="tbNumbers">
+            <tr>
+                <td id="tdNum1"></td>
+                <td id="tdNum2"></td>
+                <td id="tdNum3"></td>
+                <td id="tdNum4"></td>
+            </tr>
+        </table>
+    </div>
+    <!-- div to start a game -->
+    <div id="divStart">
+        <button id="btnStart">Start a game</button>
+    </div>
+    <!-- div to display feedback for users after they submit their answer -->
+    <div id="divFeedback"></div>
+
+    <!-- div for users to type their answer and submit -->
+    <div id="divAnswer">
+        Your calculation: <input type="text" id="inAnswer"> <br />
+        <input type="submit" id="btnAnswer" value="Submit" /><br/>
+    </div>
+
+    <!-- div to display leaderboard  -->
+    <div id="divLeader">
+        Leaderboard
+        
+    </div>
+   
+    <div id="divRetry">
+        <button id="btnRetry">Retry</button>
+    </div>
+    <div id="divLogout">
+        <button id="btnLogout">Log Out</button>
+    </div>
+    <!-- <div id="example"></div> -->
+    <div id='seconds'> </div>
+</body>
+</html>
