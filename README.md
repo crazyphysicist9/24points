@@ -2,6 +2,8 @@
 
 Creative Project: Combine operations and operands to get an expression to equal 24
 
+Authors: Joseph Li and Tina Liu
+
 Functionality:
 - Users can register, login, and logout
 - User personal best displayed upon login and end of a game
